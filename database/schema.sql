@@ -1,11 +1,11 @@
 -- Create Users Table
 CREATE TABLE users (
-  user_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID PRIMARY KEY,
   username VARCHAR(255) UNIQUE NOT NULL,
   email VARCHAR(255) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  profile_picture TEXT
+  profile_picture TEXT,
+  FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE
 );
 
 -- Create Profiles Table

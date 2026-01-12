@@ -61,7 +61,7 @@ export default function Register() {
       if (authError) throw authError
 
       if (authData.user) {
-        // Create user profile
+        // Create user profile in users table (linked to auth.users)
         const { error: profileError } = await supabase
           .from('users')
           .insert([{
